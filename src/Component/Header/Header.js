@@ -1,7 +1,16 @@
 import './Header.scss';
+import { toggleSettings, TOGGLE_SETTINGS} from '../../actions/index';
+import { useDispatch, useSelector } from 'react-redux';
+
 
 
 function Header(){
+    const dispatch = useDispatch();
+    const open = useSelector((state)=>state.users.open)
+    const handleclick = () => {
+        dispatch(toggleSettings());
+        console.log(open)
+    }
     return(
         <div className='header'>
         <div className='navbar-container'>
@@ -10,7 +19,8 @@ function Header(){
             </form>
             <div className='modale-groupe'>
                 <button>Création de compte</button>
-                <button>Connexion</button>
+                <button onClick={handleclick}>Connexion</button>
+                
             </div>
         </div>
         </div>
