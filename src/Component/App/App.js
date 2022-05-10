@@ -1,12 +1,12 @@
-import Header from '../Header/header';
+import Landing from '../Landing/Landing';
+
+
 import './App.scss';
 
 function App() {
   return (
     <div className="App">
-      <h1>App</h1>
-      <Header/>
-
+     <Landing/>
     </div>
   );
 }
