@@ -1,9 +1,18 @@
 import './Header.scss';
 
+
 function Header(){
     return(
         <div className='header'>
-            <h1>Header</h1>
+        <div className='navbar-container'>
+            <form className='search-bar'>
+                <input type='text' placeholder='Recherche...' className='search-input' />
+            </form>
+            <div className='modale-groupe'>
+                <button>Création de compte</button>
+                <button>Connexion</button>
+            </div>
+        </div>
         </div>
         
     );
