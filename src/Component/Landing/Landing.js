@@ -3,7 +3,7 @@ import LandingText from './LandingText';
 
 
 
-function Landing(){
+const Landing = () => {
     return(
         <div className='landing'>
             <LandingText/>

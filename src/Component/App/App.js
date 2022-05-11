@@ -1,14 +1,16 @@
 import Header from '../Header/Header';
 import Landing from '../Landing/Landing';
+import MainGrid from '../MainGrid';
 
 
 import './App.scss';
 
-function App() {
+const App = () => {
   return (
     <div className="App">
       <Header />
       <Landing/>
+      <MainGrid />
     </div>
   );
 }

@@ -1,10 +1,11 @@
 import './Header.scss';
-import { toggleSettings, TOGGLE_SETTINGS} from '../../actions/index';
+import { toggleSettings } from '../../actions/index';
 import { useDispatch, useSelector } from 'react-redux';
 
 
 
-function Header(){
+
+const Header = () => {
     const dispatch = useDispatch();
     const open = useSelector((state)=>state.users.open)
     const handleclick = () => {

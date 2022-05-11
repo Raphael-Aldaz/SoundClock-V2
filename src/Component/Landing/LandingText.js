@@ -1,6 +1,6 @@
 import './Landing.scss';
 
-function LandingText(){
+const LandingText = () => {
     return(
         <div className="landingText">
             <h1>SoundClock</h1>
