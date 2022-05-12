@@ -7,26 +7,27 @@ import { playingMusics } from '../../actions';
 import AudioPlayer from 'react-h5-audio-player';
 import 'react-h5-audio-player/lib/styles.css';
 import './MainGrid.scss';
-const Card = () => {
+
+
+const Card = ({
+    image
+}
+) => {
     const dispatch = useDispatch()
+    
     const play = useSelector((state)=> state.musics.play)
  
-    const style = {
-        background: `url(${image}) no-repeat`, 
-    }
-
-
-    const handlePlay = () => {
-       dispatch(playingMusics());
-    }
-   
-    
     return(
        
             <div className='card'>
             <AudioPlayer
                 src={sound}
                 className='player'
+                style={
+                        {
+                            background: `url(${image}) no-repeat`, 
+                        }
+                    }
              />
 
 {/*                 <ReactPlayer
