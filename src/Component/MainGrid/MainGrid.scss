@@ -1,15 +1,111 @@
 
-    .mainGrid_topMusic{
-        display: flex;
+    .mainGrid{
         
-        background-color: red;
-        border: solid black 1px; 
-    }
-    .player{
-        background-size: cover!important;
-    }
+
+        .mainGrid_topMusic{
+            display: grid;
+            grid-template-columns: repeat(5, 20%);
+            grid-template-rows: repeat(2, 1fr);
+            
+            border: solid black 1px; 
+            padding: 2rem;
+            width: 80%;
+            margin: auto;
+            
+            
+            
+            .card{
+                width: 14rem;
+                height: 14rem;
+                
+                padding: 1rem;
+                justify-self: center;
+                
+                
+
+                .player{
+                    height: 14rem!important;
+                    width: 14rem!important;
+                    background-size: cover!important;
+                    background-image: url(https://images.unsplash.com/photo-1638913662529-1d2f1eb5b526?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80);
+
+                    audio{
+                        width: 12rem!important;
+                        height: 5rem!important;
+                    }
+                }
+
+                .button{
+                    align-items: center;
+                }
+            
+            }
+        }
+        .rhap_additional-controls{
+            display: none;
+        }
+        .rhap_rewind-button{
+            display: none;
+        }
+        .rhap_forward-button{
+            display: none;
+        }
+        .rhap_play-pause-button{
+            svg{
+                width: 0.5em;
+                color: black;
+            }
+        }
+        .rhap_volume-button {
+            svg{
+                width: 0.5em;
+                color: black;
+            }
+        }
+        .rhap_current-time{
+            display: none;
+        }
+        .rhap_total-time{
+            display: none;
+        }
+        .rhap_progress-container{
+            color: black;
+            width: 0.5em;
+        }
+
+        @media (min-width: 1025px) and (max-width: 1300px) {
   
+            .mainGrid_topMusic{
+                grid-template-columns: repeat(4, 25%);
+                grid-template-rows: repeat(3, 33%);
 
+        
+            }
+            
+          }
+        @media screen and (max-width: 655px) {
 
+            .mainGrid_topMusic{
+                grid-template-columns: repeat(2, 50%);
+                grid-template-rows: repeat(5, 20%);
+
+            .card{
+                width: 7rem;
+                height: 7rem;
+            }
+
+            .player{
+                max-height: 7rem!important;
+                max-width: 7rem!important;
+                background-size: cover!important;
+            }
+            
+            }
+            
+         }
+    }
+    
+   
+   
 
    
