@@ -13,8 +13,14 @@ const MainGrid = () => {
         {
             musics.map((music) => (
                 <Card 
-                    khey={music.id}
+                    key={music.id}
                     image={music.picture}
+                    music={music.file}
+                    description={music.description}
+                    title={music.title}
+                    nbListened={music.nb_listened}
+                    nbLike={music.nb_like}
+                    
                 />
             ))
         }

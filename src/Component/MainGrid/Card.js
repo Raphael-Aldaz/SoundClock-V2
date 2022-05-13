@@ -1,25 +1,23 @@
 /*import ReactPlayer from 'react-player';*/
-
+import {AiTwotoneSound, AiFillLike} from 'react-icons/ai'
 import sound from './honey-im-home-giulio-fazio-main-version-02-37-3206.mp3';
-import image from './téléchargement.jpeg'
-import { useDispatch, useSelector } from 'react-redux';
-import { playingMusics } from '../../actions';
 import AudioPlayer from 'react-h5-audio-player';
 import 'react-h5-audio-player/lib/styles.css';
 import './MainGrid.scss';
 
 
 const Card = ({
-    image
+    image,
+    description,
+    title,
+    nbListened,
+    nbLike
 }
 ) => {
-    const dispatch = useDispatch()
-    
-    const play = useSelector((state)=> state.musics.play)
- 
     return(
        
             <div className='card'>
+
             <AudioPlayer
                 src={sound}
                 className='player'
@@ -29,20 +27,15 @@ const Card = ({
                         }
                     }
              />
+             <div className='card_info'>
+             <h1 className='card_info-title'>{title}</h1>
+             <p className='card_info-description' >{description}</p>
+             <p><AiTwotoneSound/>{nbListened}</p>
+             <p><AiFillLike/>{nbLike}</p>
 
-{/*                 <ReactPlayer
-                    className='player'
-                    style={
-                        {
-                            background: `url(${image}) no-repeat`, 
-                        }
-                    }
-                    url={sound}
-                    playing={play}
-                    controls
-                    
-                />  */}
-                {/* <button className='button_control' onClick={handlePlay}>Play</button> */}
+             </div>
+            
+
             </div>
    
        
