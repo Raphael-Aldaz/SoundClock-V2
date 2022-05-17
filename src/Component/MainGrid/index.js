@@ -1,4 +1,5 @@
 import { useSelector } from 'react-redux';
+import sound from './Ov Moi Omm - I Was Different.mp3';
 import Card from './Card';
 import './MainGrid.scss';
 
@@ -13,9 +14,10 @@ const MainGrid = () => {
         {
             musics.map((music) => (
                 <Card 
+                
                     key={music.id}
                     image={music.picture}
-                    music={music.file}
+                    music={sound}
                     description={music.description}
                     title={music.title}
                     nbListened={music.nb_listened}

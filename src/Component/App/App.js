@@ -11,13 +11,10 @@ import './App.scss';
 const App = () => {
 
   const dispatch = useDispatch();
-  /* const handleclick = () => {
-    dispatch(getMusicsList());
-  } */
   useEffect(
     () => {
       dispatch(getMusicsList());
-    }, []
+    }
   )
 
  

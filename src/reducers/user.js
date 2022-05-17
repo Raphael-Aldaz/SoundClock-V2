@@ -1,7 +1,10 @@
 import { TOGGLE_SETTINGS } from "../actions";
+import { SET_USER_FIELD } from "../actions/user";
 
 export const initialState = {
     open: false,
+    username:'',
+    password:''
     };
     
     const reducer = (state = initialState, action = {}) => {
@@ -10,6 +13,11 @@ export const initialState = {
                 return{
                     ...state,
                     open: !state.open,
+                }
+            case SET_USER_FIELD:
+                return{
+                    ...state,
+                    [action.name]:action.value
                 }
             
             default:

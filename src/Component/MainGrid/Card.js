@@ -1,6 +1,6 @@
 /*import ReactPlayer from 'react-player';*/
 import {AiTwotoneSound, AiFillLike} from 'react-icons/ai'
-import sound from './honey-im-home-giulio-fazio-main-version-02-37-3206.mp3';
+
 import AudioPlayer from 'react-h5-audio-player';
 import 'react-h5-audio-player/lib/styles.css';
 import './MainGrid.scss';
@@ -11,7 +11,8 @@ const Card = ({
     description,
     title,
     nbListened,
-    nbLike
+    nbLike,
+    sound
 }
 ) => {
     return(
