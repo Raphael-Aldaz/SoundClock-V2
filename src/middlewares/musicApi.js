@@ -9,7 +9,7 @@ const musicApi = (store) => (next) => (action) =>{
         case GET_MUSICS_LIST: 
             axios.get('http://raphael-aldaz-server.eddi.cloud/projet-9-sound-clock-back/public/api/musics/top10/like')
             .then((response)=>{
-                console.log(response)
+                
                 store.dispatch(setMusicsList(response.data));
             })
             .catch((error) => {

@@ -1,5 +1,5 @@
 import axios from "axios";
-import { LOGIN } from "../actions/user";
+import { loged, LOGIN } from "../actions/user";
 
 const loginApi = (store) => (next) => (action) =>{
 
@@ -8,14 +8,21 @@ const loginApi = (store) => (next) => (action) =>{
         
         case LOGIN:{
             const { users: { username, password } } = store.getState();
-        axios.post('login/check_api',{
+        axios.post('http://raphael-aldaz-server.eddi.cloud/projet-9-sound-clock-back/public/api/login_check',{
             username,
             password
         })
-        .then((response)=> 
-        console.log(response))
-        .catch((error) =>
-        console.log(error) )
+        .then(
+            (response) => {
+                console.log(response.data.token);
+                localStorage.setItem('userToken', response.data.token);
+                store.dispatch(loged());
+                
+            },
+        )
+        .catch(
+            (error) => console.log('Login error :', error),
+        );
         }
         break;
             

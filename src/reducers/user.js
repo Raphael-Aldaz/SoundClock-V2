@@ -1,10 +1,11 @@
 import { TOGGLE_SETTINGS } from "../actions";
-import { SET_USER_FIELD } from "../actions/user";
+import { LOGED, LOGGOUT, SET_USER_FIELD } from "../actions/user";
 
 export const initialState = {
     open: false,
     username:'',
-    password:''
+    password:'',
+    logged: false,
     };
     
     const reducer = (state = initialState, action = {}) => {
@@ -19,7 +20,17 @@ export const initialState = {
                     ...state,
                     [action.name]:action.value
                 }
-            
+                case LOGED:
+                    return{
+                        ...state,
+                        logged: true
+                    }
+                case LOGGOUT:
+                    localStorage.removeItem('userToken'); 
+                    return{
+                        ...state,
+                        logged:false
+                    }
             default:
             return state;
         }

@@ -1,29 +1,19 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import { TextField } from '@mui/material';
+import SendIcon from '@mui/icons-material/Send';
+
 import './Header.scss'
 
-const style = {
-  position: 'absolute',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
-  width: 400,
-  bgcolor: 'background.paper',
-  border: '2px solid #000',
-  boxShadow: 24,
-  p: 4,
-};
 
 
 const ModalConnect = ({
     email,
     password,
     changeField,
-    submit
+    handleLogin
 }) => {
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
@@ -31,6 +21,10 @@ const ModalConnect = ({
 
     const handleChange=(e) =>{
         changeField(e.target.name, e.target.value)
+    }
+    const handleSubmit = (e) => {
+      e.preventDefault();
+      handleLogin();
     }
   
     return (
@@ -42,9 +36,11 @@ const ModalConnect = ({
           aria-labelledby="modal-modal-title"
           aria-describedby="modal-modal-description"
         >
-          <Box sx={style}>
-            <form onSubmit={submit}>
-                <TextField 
+          <Box className='modal-open'>
+          <form onSubmit={handleSubmit}>
+            
+            <TextField
+                    margin="dense"
                     id="name-input"
                     name="username"
                     value={email}
@@ -54,6 +50,7 @@ const ModalConnect = ({
                     onChange={handleChange}
                 />
                 <TextField 
+                    margin="dense"
                     id="mdp-input"
                     name="password"
                     value={password}
@@ -62,9 +59,11 @@ const ModalConnect = ({
                     type={'password'}
                     onChange={handleChange}
                  />
-            <Button variant="contained" color="primary" type="submit">
-                Submit
+
+            <Button variant="contained" endIcon={<SendIcon />} type="submit"  onClose={handleClose}>
+              Send
             </Button>    
+            
             </form>
           </Box>
         </Modal>

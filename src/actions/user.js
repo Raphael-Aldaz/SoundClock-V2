@@ -14,3 +14,18 @@ export const LOGIN = 'LOGIN';
 export const login = () => ({
   type: LOGIN,
 });
+
+// ACTION TYPE LOGIN
+export const LOGED = 'LOGED';
+
+// ACTION CREATOR login
+export const loged = () => ({
+  type: LOGED,
+});
+// ACTION TYPE TOGGLE_SETTINGS
+export const LOGGOUT = 'LOGGOUT';
+
+// ACTION CREATOR toggleSettings
+export const loggOut = () => ({
+  type: LOGGOUT,
+});

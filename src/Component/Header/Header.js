@@ -1,8 +1,9 @@
 import './Header.scss';
-import { toggleSettings } from '../../actions/index';
+
 import { useDispatch, useSelector } from 'react-redux';
 import ModalConnect from './ModalConnect';
-import { login, setUserField } from '../../actions/user';
+import { loggOut, login, setUserField } from '../../actions/user';
+import ModalCreate from './ModalCreate';
 
 
 
@@ -10,17 +11,21 @@ import { login, setUserField } from '../../actions/user';
 const Header = () => {
     const email= useSelector((state)=>state.users.email)
     const password= useSelector((state)=>state.users.password)
+    const logged = useSelector((state)=>state.users.logged)
+
     const changeField = (name, value) => {
         dispatch(setUserField(name,value))
     }
     const dispatch = useDispatch();
-    const open = useSelector((state)=>state.users.open)
+    
     const handleclick = () => {
-        dispatch(toggleSettings());
-        console.log(open)
+        dispatch(loggOut());
+        window.location.reload();
+
     }
     const handleLogin =() =>{
         dispatch(login());
+        
     }
     return(
         <div className='header'>
@@ -29,13 +34,24 @@ const Header = () => {
                 <input type='text' placeholder='Recherche...' className='search-input' />
             </form>
             <div className='modale-groupe'>
+            {(!logged) &&
+            <>
                 <ModalConnect
                     changeField={changeField}
                     email={email}
                     password={password}
                     handleLogin={handleLogin}
                  />
-                <button onClick={handleclick}>Connexion</button>
+                <ModalCreate/>
+            </>
+
+            }
+            {(logged) &&
+                <>
+                    <button onClick={handleclick}>Déconnexion</button>
+                </>
+            }
+               
                 
             </div>
         </div>
