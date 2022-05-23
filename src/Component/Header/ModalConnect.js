@@ -5,6 +5,12 @@ import Modal from '@mui/material/Modal';
 import { TextField } from '@mui/material';
 import SendIcon from '@mui/icons-material/Send';
 
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
+
 import './Header.scss'
 
 
@@ -15,9 +21,17 @@ const ModalConnect = ({
     changeField,
     handleLogin
 }) => {
-    const [open, setOpen] = React.useState(false);
-    const handleOpen = () => setOpen(true);
-    const handleClose = () => setOpen(false);
+  const [open, setOpen] = React.useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+    
 
     const handleChange=(e) =>{
         changeField(e.target.name, e.target.value)
@@ -29,7 +43,56 @@ const ModalConnect = ({
   
     return (
       <div>
-        <Button onClick={handleOpen}>Se Connecter</Button>
+      <Button variant="outlined" onClick={handleClickOpen}>
+        Se Connecter
+      </Button>
+      <Dialog open={open} onClose={handleClose}>
+        <DialogTitle>Connectez vous</DialogTitle>
+        <form onSubmit={handleSubmit}>
+        <DialogContent >
+          
+            <TextField
+                    margin="dense"
+                    id="name-input"
+                    name="username"
+                    value={email}
+                    label="Votre Email"
+                    required
+                    type={'email'}
+                    onChange={handleChange}
+                />
+                <TextField 
+                    margin="dense"
+                    id="mdp-input"
+                    name="password"
+                    value={password}
+                    label='Votre mot de passe'
+                    required
+                    type={'password'}
+                    onChange={handleChange}
+                 />
+          
+          
+        </DialogContent>
+        <DialogActions>
+          <Button variant="contained" onClick={handleClose}>Annuler</Button>
+          <Button variant="contained" onClick={handleClose} type="submit">se connecter</Button>
+          </DialogActions>
+        </form>
+        
+      </Dialog>
+        
+      </div>
+    );
+}
+
+export default ModalConnect
+
+/* const [open, setOpen] = React.useState(false);
+    const handleOpen = () => setOpen(true);
+    const handleClose = () => setOpen(false); */
+
+{/* <Button onClick={handleOpen}>Se Connecter</Button>
         <Modal
           open={open}
           onClose={handleClose}
@@ -38,7 +101,7 @@ const ModalConnect = ({
         >
           <Box className='modal-open'>
           <form onSubmit={handleSubmit}>
-            
+            <h1>Connectez vous </h1>
             <TextField
                     margin="dense"
                     id="name-input"
@@ -66,9 +129,4 @@ const ModalConnect = ({
             
             </form>
           </Box>
-        </Modal>
-      </div>
-    );
-}
-
-export default ModalConnect
+        </Modal> */}

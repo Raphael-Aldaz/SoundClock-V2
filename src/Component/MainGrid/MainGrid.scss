@@ -4,8 +4,8 @@
 
         .mainGrid_topMusic{
             display: grid;
-            grid-template-columns: repeat(5, 20%);
-            
+            /* grid-template-columns: repeat(5, 20% ); */
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             border: solid black 1px; 
             padding: 2rem;
             width: 80%;
@@ -15,11 +15,10 @@
             
             .card{
                 width: 14rem;
-                padding: 0.5rem;
                 justify-self: center;
                 box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
                 margin-top: 1rem;
-                overflow-wrap: break-word  ;
+                overflow-wrap: break-word ;
                 
                 
 
@@ -27,139 +26,201 @@
                     height: 14rem!important;
                     width: 14rem!important;
                     background-size: cover!important;
-                    position: relative;
                     /* background-image: url(https://images.unsplash.com/photo-1638913662529-1d2f1eb5b526?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80); */
-
-                 
                 }
 
                 .card_info{
-                    justify-content: flex-start;
                     margin-top: 0.5rem; 
+                    display: flex;
+                    flex-direction: column;
+                    
+
                     h1{
                         text-align: center;
-                        font-size: 2rem;
+                        font-size: 1rem;
                         font-weight: bold;
                     }
-                    .card_info-description{
-                        
-                        font-size: 1.5rem;
-                        padding: 1rem;
+
+                    .card_info-meta{
+                    display: flex;
+                    justify-content: space-evenly;
+                    margin-top: 0.5rem;
+                    font-size: 0.8rem;
+                    padding: 0.5rem;
+                    
+                    
                     }
+                    .listen, .like{
+                        display: flex;
+                        color: white ;
+                        border-radius: 3px;
+                        padding: 0.3rem;
+                        background-color:#00BFFF;
+                        box-shadow: 0px 3px 11px 4px rgba(0,0,0,0.35);
+
+                        .nbListened-icon,.nbLike-icon{
+                            margin-right: 0.4rem;
+                        }
+                    }
+
                 }
             
             }
         }
-        .rhap_additional-controls{
-            display: none;
-        }
-        .rhap_rewind-button{
-            display: none;
-        }
-        .rhap_forward-button{
-            display: none;
-        }
-        .rhap_play-pause-button{
-            background-color: rgba(83, 82, 82, 0.702);
-            border-radius: 50%;
-            
-            svg{
-               color: white;
 
-               :hover{
-                   transition-duration: 0.2s;
-                   color:black;
-               }
-            }
-        }
-        .rhap_volume-button {
-            background-color: rgba(83, 82, 82, 0.702);
-            border-radius: 50%;
-            
-            svg{
-                
-                color: white;
-                
-                
-            }
-        }
-        .rhap_current-time{
-            display: none;
-        }
-        .rhap_total-time{
-            display: none;
-        }
-        .rhap_progress-container{
-            background-color: rgba(0, 0, 0, 0.5);
-            border-radius: 5px;
-            padding: 0 0.5rem;
-            align-self: flex-end;
-        }
-        .rhap_progress-section{
-            
-            bottom: 2px;
-            height: 0.5rem;
-            
-            border-radius: 5px;
-            
-        }
-        .rhap_button-clear:hover{
-            opacity: 1;    
-            
-        }
-        .rhap_progress-filled{
-            
-            background-color: whitesmoke
-        }
-        .rhap_progress-indicator{
-            
-            display: none;
-          
-        }
-        .rhap_controls-section{
-            height: 0.1px;
-            
-           
-        }
-       
+    }
 
-        @media (min-width: 1300px) and (max-width: 1600px) {
+/********************************************************************************
+// Player Style//
+*********************************************************************************/
+.rhap_additional-controls{
+    display: none;
+}
+.rhap_rewind-button{
+    display: none;
+}
+.rhap_forward-button{
+    display: none;
+}
+.rhap_current-time{
+    display: none;
+}
+.rhap_total-time{
+    display: none;
+}
+.rhap_progress-indicator{
+    
+    display: none;
+  
+}
+
+/********************************************************************************
+//Controle Style//
+*********************************************************************************/
+.rhap_play-pause-button{
+    background-color: rgba(83, 82, 82, 0.702);
+    border-radius: 50%;
+    
+/*     svg{
+       color: white;
+
+       :hover{
+           transition-duration: 0.2s;
+           color:black;
+       }
+    } */
+}
+
+.rhap_volume-button {
+    background-color: rgba(83, 82, 82, 0.702);
+    border-radius: 50%;
+    
+/*     svg{
+        
+        color: white;
+        
+        
+    } */
+}
+
+
+
+.rhap_stacked{
+    background-color: red;
+    flex-direction: column-reverse;
+    flex: none;
+    visibility: hidden;
+    cursor: crosshair;
+
+    .rhap_progress-section{
+        flex: none;
+
+    }
+    .rhap_controls-section{
+        flex: none;
+    }
+
+    :hover{
+        
+        visibility:initial ;
+    }
+
+   
+}
+
+
+
+
+/* .rhap_progress-container{
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    padding: 0 0.5rem;
+    align-self: flex-end;
+}
+.rhap_progress-section{
+    
+    bottom: 2px;
+    height: 0.5rem;
+    border-radius: 5px;
+    
+}
+.rhap_button-clear:hover{
+    opacity: 1;    
+    
+}
+.rhap_progress-filled{
+    
+    background-color: whitesmoke
+}
+
+.rhap_controls-section{
+    height: 0.1px;  
+} */
+
+/*         @media (min-width: 1300px) and (max-width: 1600px) {
   
             .mainGrid_topMusic{
                 grid-template-columns: repeat(4, 25%);
-                grid-template-rows: repeat(3, 33%);
-
-        
+                
             }
             
           }
           @media (min-width: 656px) and (max-width: 1300px) {
   
             .mainGrid_topMusic{
-                grid-template-columns: repeat(3, 33%);
-                grid-template-rows: repeat(4, 25%);
+                grid-template-columns: repeat(4, 25%);
                 .card{
                     width: 7rem;
-                }
+                } 
     
                 .player{
                     max-height: 7rem!important;
                     max-width: 7rem!important;
                     background-size: cover!important;
                 }
-
-        
             }
-            
           }
         @media screen and (max-width: 655px) {
 
             .mainGrid_topMusic{
-                grid-template-columns: repeat(2, 50%);
-                grid-template-rows: repeat(5, 20%);
+               grid-template-columns: repeat(2, 50%);
 
             .card{
                 width: 7rem;
+                .card_info{
+                    justify-content: flex-start;
+                    margin-top: 0.5rem; 
+                    h1{
+                        text-align: center;
+                        font-size: 0.69rem;
+                        font-weight: bold;
+                    }
+                    .card_info-description{
+                        display: none;
+                        font-size: 1rem;
+                        padding: 1rem;
+                    }
+                }
             }
 
             .player{
@@ -167,11 +228,9 @@
                 max-width: 7rem!important;
                 background-size: cover!important;
             }
-            
-            }
-            
-         }
-    }
+
+            }  
+         } */
     
    
    

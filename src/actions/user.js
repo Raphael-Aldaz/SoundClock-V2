@@ -16,12 +16,13 @@ export const login = () => ({
 });
 
 // ACTION TYPE LOGIN
-export const LOGED = 'LOGED';
+export const IS_LOGED = 'IS_LOGED';
 
 // ACTION CREATOR login
-export const loged = () => ({
-  type: LOGED,
+export const isLoged = () => ({
+  type: IS_LOGED,
 });
+
 // ACTION TYPE TOGGLE_SETTINGS
 export const LOGGOUT = 'LOGGOUT';
 

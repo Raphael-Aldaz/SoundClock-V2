@@ -48,6 +48,7 @@ const Header = () => {
             }
             {(logged) &&
                 <>
+                    <button>Acceder a votre compte</button>
                     <button onClick={handleclick}>Déconnexion</button>
                 </>
             }

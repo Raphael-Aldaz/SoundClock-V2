@@ -1,5 +1,5 @@
 import axios from "axios";
-import { loged, LOGIN } from "../actions/user";
+import { isLoged, login, LOGIN } from "../actions/user";
 
 const loginApi = (store) => (next) => (action) =>{
 
@@ -16,7 +16,7 @@ const loginApi = (store) => (next) => (action) =>{
             (response) => {
                 console.log(response.data.token);
                 localStorage.setItem('userToken', response.data.token);
-                store.dispatch(loged());
+                store.dispatch(isLoged());
                 
             },
         )

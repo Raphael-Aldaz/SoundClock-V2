@@ -1,20 +1,22 @@
 /*import ReactPlayer from 'react-player';*/
 import {AiTwotoneSound, AiFillLike} from 'react-icons/ai'
+import sound from './Ov Moi Omm - I Was Different.mp3'
 
 import AudioPlayer from 'react-h5-audio-player';
 import 'react-h5-audio-player/lib/styles.css';
 import './MainGrid.scss';
 
 
+
 const Card = ({
     image,
-    description,
     title,
     nbListened,
     nbLike,
-    sound
+    
 }
 ) => {
+   
     return(
        
             <div className='card'>
@@ -30,9 +32,11 @@ const Card = ({
              />
              <div className='card_info'>
              <h1 className='card_info-title'>{title}</h1>
-             <p className='card_info-description' >{description}</p>
-             <p><AiTwotoneSound/>{nbListened}</p>
-             <p><AiFillLike/>{nbLike}</p>
+
+             <div className='card_info-meta'>
+             <span className='listen'><AiTwotoneSound className='nbListened-icon' /><p className='nbListened'>{nbListened}</p></span>
+             <span className='like'><AiFillLike className='nbLike-icon'/><p className='nbLike'>{nbLike}</p></span>
+             </div>
 
              </div>
             

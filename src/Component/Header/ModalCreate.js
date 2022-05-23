@@ -4,7 +4,99 @@ import Button from '@mui/material/Button';
 import Modal from '@mui/material/Modal';
 import { TextField } from '@mui/material';
 import { FormControl } from '@mui/material';
+
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
+
 import './Header.scss'
+
+
+
+
+const ModalCreate = () => {
+
+  const [open, setOpen] = React.useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+    
+   
+  
+    return (
+      <div>
+      <Button variant="outlined" onClick={handleClickOpen}>
+        Open form dialog
+      </Button>
+      <Dialog open={open} onClose={handleClose}>
+        <DialogTitle>Subscribe</DialogTitle>
+        <form>
+        <DialogContent>
+         
+          <TextField
+            
+            margin="dense"
+            id="name"
+            label="Email Address"
+            type="email"
+            
+           
+          />
+           <TextField
+            
+            margin="dense"
+            id="name"
+            label="Email Address"
+            type="email"
+            
+            
+          />
+           <TextField
+           
+            margin="dense"
+            id="name"
+            label="Email Address"
+            type="email"
+            
+           
+          />
+           <TextField
+           
+            margin="dense"
+            id="name"
+            label="Email Address"
+            type="email"
+            
+            
+          />
+        </DialogContent>
+        <DialogActions>
+          <Button variant="contained" onClick={handleClose}>Cancel</Button>
+          <Button variant="contained" onClick={handleClose}>Subscribe</Button>
+        </DialogActions>
+
+        </form>
+      </Dialog>
+        
+      </div>
+    );
+}
+
+export default ModalCreate
+
+
+/* const [open, setOpen] = React.useState(false);
+    const handleOpen = () => setOpen(true);
+    const handleClose = () => setOpen(false);
+
+
 
 const style = {
   position: 'absolute',
@@ -19,16 +111,8 @@ const style = {
 };
 
 
-const ModalCreate = () => {
-    const [open, setOpen] = React.useState(false);
-    const handleOpen = () => setOpen(true);
-    const handleClose = () => setOpen(false);
 
-   
-  
-    return (
-      <div>
-        <Button onClick={handleOpen}>Créer votre compte</Button>
+<Button onClick={handleOpen}>Créer votre compte</Button>
         <Modal
           open={open}
           onClose={handleClose}
@@ -68,9 +152,4 @@ const ModalCreate = () => {
 
             </FormControl>
           </Box>
-        </Modal>
-      </div>
-    );
-}
-
-export default ModalCreate
+        </Modal> */

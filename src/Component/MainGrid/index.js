@@ -18,7 +18,6 @@ const MainGrid = () => {
                     key={music.id}
                     image={music.picture}
                     music={sound}
-                    description={music.description}
                     title={music.title}
                     nbListened={music.nb_listened}
                     nbLike={music.nb_like}
