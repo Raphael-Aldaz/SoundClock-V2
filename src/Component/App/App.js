@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { getMusicsList } from '../../actions/music';
-import { isLoged } from '../../actions/user';
+import { getUsersList, isLoged } from '../../actions/user';
 import Header from '../Header/Header';
 import Landing from '../Landing/Landing';
 import MainGrid from '../MainGrid';
@@ -18,6 +18,7 @@ const App = () => {
     () => {
       const loggedUser = localStorage.getItem("userToken");
       dispatch(getMusicsList());
+      dispatch(getUsersList());
 
        if(loggedUser){
         dispatch(isLoged());

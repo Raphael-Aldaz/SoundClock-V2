@@ -10,7 +10,7 @@ const musicApi = (store) => (next) => (action) =>{
             axios.get('http://raphael-aldaz-server.eddi.cloud/projet-9-sound-clock-back/public/api/musics/top10/like')
             .then((response)=>{
                 
-                store.dispatch(setMusicsList(response.data));
+                store.dispatch(setMusicsList(response.data.slice(5)));
             })
             .catch((error) => {
                 console.log(error, 'erreur api');

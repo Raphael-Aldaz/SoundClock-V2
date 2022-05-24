@@ -1,10 +1,11 @@
-import { LOGGOUT, SET_USER_FIELD, IS_LOGED } from "../actions/user";
+import { LOGGOUT, SET_USER_FIELD, IS_LOGED, SET_USERS_LIST } from "../actions/user";
 
 export const initialState = {
     open: false,
     username:'',
     password:'',
     logged: false,
+    list: []
     };
     
     const reducer = (state = initialState, action = {}) => {
@@ -26,6 +27,12 @@ export const initialState = {
                         ...state,
                         logged:false
                     }
+                case SET_USERS_LIST:
+                    return{
+                        ...state,
+                        list: action.userList
+
+                    }    
             default:
             return state;
         }

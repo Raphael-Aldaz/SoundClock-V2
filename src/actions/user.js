@@ -30,3 +30,18 @@ export const LOGGOUT = 'LOGGOUT';
 export const loggOut = () => ({
   type: LOGGOUT,
 });
+
+// ACTION TYPE GET_USERS_LIST
+export const GET_USERS_LIST = 'GET_USERS_LIST';
+// Get user list in the store
+export const getUsersList = () => ({
+  type: GET_USERS_LIST,
+});
+
+// ACTION TYPE SET_USERS_LIST
+export const SET_USERS_LIST = 'SET_USERS_LIST';
+// Get user list in the store
+export const setUsersList = (userList) => ({
+  type: SET_USERS_LIST,
+  userList
+});

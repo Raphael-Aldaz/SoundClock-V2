@@ -1,5 +1,5 @@
 import axios from "axios";
-import { isLoged, login, LOGIN } from "../actions/user";
+import { isLoged, LOGIN } from "../actions/user";
 
 const loginApi = (store) => (next) => (action) =>{
 

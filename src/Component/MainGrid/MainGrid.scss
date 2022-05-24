@@ -1,24 +1,44 @@
 
     .mainGrid{
+         background-color: #252524;
+
+        .topMusic, .topUser{
+           
+            &_title{
+                padding: 1rem;
+                text-align: center;
+                color: #FEFFFE;
+                font-family: 'Radio Canada', sans-serif;
+                font-size: 3rem;
+                text-decoration: underline #00BFFF ;
+            }
+
+        }
         
 
-        .mainGrid_topMusic{
+        .mainGrid_topMusic, .mainGrid_topUser{
             display: grid;
             /* grid-template-columns: repeat(5, 20% ); */
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            border: solid black 1px; 
+            border-radius: 10px;
             padding: 2rem;
             width: 80%;
             margin: auto;
+            background-color: #0D0D0C ;
             
-            
+/********************************************************************************
+// Card Music//
+*********************************************************************************/
             
             .card{
                 width: 14rem;
                 justify-self: center;
-                box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+                border-radius: 10px;
+                /* box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset; */
                 margin-top: 1rem;
                 overflow-wrap: break-word ;
+                background-color: #252524;
+                font-family: 'Montserrat', sans-serif;
                 
                 
 
@@ -39,6 +59,7 @@
                         text-align: center;
                         font-size: 1rem;
                         font-weight: bold;
+                        color: #FEFFFE;
                     }
 
                     .card_info-meta{
@@ -67,6 +88,45 @@
             
             }
         }
+/********************************************************************************
+// Card User//
+*********************************************************************************/
+        .cardUser{
+            /* display: flex;
+            flex-direction: column;
+            width: 14rem; */
+
+            width: 14rem;
+            justify-self: center;
+            border-radius: 10px;
+            /* box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset; */
+            margin-top: 1rem;
+            overflow-wrap: break-word ;
+            background-color: #252524;
+            font-family: 'Montserrat', sans-serif;
+        }
+        .card__cover {
+            height: 14rem;
+            width: 14rem;
+            background-size: cover!important;
+        }
+
+        .card__content {
+            padding: 0.5rem;
+            flex: 1;
+            color: white;
+            font-size: 0.7rem;
+        }
+        .card__content-meta{
+            font-size: 1rem;
+            padding: 0.8rem;
+
+            a{
+                
+                color:#00BFFF;
+            }
+        }
+
 
     }
 
@@ -98,39 +158,32 @@
 //Controle Style//
 *********************************************************************************/
 .rhap_play-pause-button{
-    background-color: rgba(83, 82, 82, 0.702);
+   background-color: rgba(83, 82, 82, 0.702);
     border-radius: 50%;
     
-/*     svg{
-       color: white;
-
-       :hover{
-           transition-duration: 0.2s;
-           color:black;
-       }
-    } */
+    svg{
+       color: #252524;
+    } 
 }
 
 .rhap_volume-button {
     background-color: rgba(83, 82, 82, 0.702);
     border-radius: 50%;
     
-/*     svg{
-        
-        color: white;
-        
-        
-    } */
+  svg{ 
+        color: #252524;    
+    }
+}
+.rhap_volume-indicator{
+    background-color: black;
 }
 
 
-
 .rhap_stacked{
-    background-color: red;
+    
     flex-direction: column-reverse;
     flex: none;
-    visibility: hidden;
-    cursor: crosshair;
+
 
     .rhap_progress-section{
         flex: none;
@@ -140,15 +193,11 @@
         flex: none;
     }
 
-    :hover{
-        
-        visibility:initial ;
-    }
-
-   
 }
-
-
+.rhap_progress-filled{
+    
+    background-color: black
+}
 
 
 /* .rhap_progress-container{
@@ -168,10 +217,7 @@
     opacity: 1;    
     
 }
-.rhap_progress-filled{
-    
-    background-color: whitesmoke
-}
+
 
 .rhap_controls-section{
     height: 0.1px;  

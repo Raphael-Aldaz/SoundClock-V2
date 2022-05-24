@@ -8,7 +8,7 @@ import './MainGrid.scss';
 
 
 
-const Card = ({
+const CardMusic = ({
     image,
     title,
     nbListened,
@@ -48,4 +48,4 @@ const Card = ({
     );
 }
 
-export default Card
+export default CardMusic
