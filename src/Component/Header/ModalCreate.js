@@ -1,9 +1,9 @@
 import * as React from 'react';
-import Box from '@mui/material/Box';
+
 import Button from '@mui/material/Button';
-import Modal from '@mui/material/Modal';
+
 import { TextField } from '@mui/material';
-import { FormControl } from '@mui/material';
+
 
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
@@ -41,41 +41,33 @@ const ModalCreate = () => {
         <DialogContent>
          
           <TextField
-            
+            required
             margin="dense"
             id="name"
-            label="Email Address"
-            type="email"
+            label="Pseudo"
+            type="text"
             
            
           />
            <TextField
-            
+            required
             margin="dense"
-            id="name"
+            id="email"
             label="Email Address"
             type="email"
             
             
           />
            <TextField
-           
+           required
             margin="dense"
-            id="name"
-            label="Email Address"
-            type="email"
+            id="password"
+            label="Votre mot de passe"
+            type="password"
             
            
           />
-           <TextField
-           
-            margin="dense"
-            id="name"
-            label="Email Address"
-            type="email"
-            
-            
-          />
+          
         </DialogContent>
         <DialogActions>
           <Button variant="contained" onClick={handleClose}>Cancel</Button>
