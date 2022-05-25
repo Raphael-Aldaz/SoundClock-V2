@@ -31,6 +31,17 @@ const ModalConnect = ({
     setOpen(false);
   };
 
+  const handleClick = () => {
+    const form = document.querySelector('.dropdown__content');
+    form.style.display = 'block';
+
+  }
+  const handleformclose = () => {
+    const form = document.querySelector('.dropdown__content');
+    form.style.display = 'none';
+
+  }
+
     
 
     const handleChange=(e) =>{
@@ -42,47 +53,21 @@ const ModalConnect = ({
     }
   
     return (
-      <div>
-      <Button variant="outlined" onClick={handleClickOpen}>
-        Se Connecter
-      </Button>
-      <Dialog open={open} onClose={handleClose}>
-        <DialogTitle>Connectez vous</DialogTitle>
-        <form onSubmit={handleSubmit}>
-        <DialogContent >
-          
-            <TextField
-                    margin="dense"
-                    id="name-input"
-                    name="username"
-                    value={email}
-                    label="Votre Email"
-                    required
-                    type={'email'}
-                    onChange={handleChange}
-                />
-                <TextField 
-                    margin="dense"
-                    id="mdp-input"
-                    name="password"
-                    value={password}
-                    label='Votre mot de passe'
-                    required
-                    type={'password'}
-                    onChange={handleChange}
-                 />
-          
-          
-        </DialogContent>
-        <DialogActions>
-          <Button variant="contained" onClick={handleClose}>Annuler</Button>
-          <Button variant="contained" onClick={handleClose} type="submit">se connecter</Button>
-          </DialogActions>
-        </form>
+    <div className="dropdown">
+    
+    <button onClick={handleClick}>Connectez Vous</button>
+
+    
+    <div className="dropdown__content">
+      <form onSubmit={handleSubmit}>
+        <input required type={'email'} label="Votre Email" name='username' onChange={handleChange} value={email}  />
+        <input required type={'password'} label="Votre Password" name='password' onChange={handleChange} value={password} />
+        <button onClick={handleformclose} >Valider</button>
+      </form>
         
-      </Dialog>
         
-      </div>
+    </div>
+</div>
     );
 }
 
@@ -90,7 +75,7 @@ export default ModalConnect
 
 /* const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
-    const handleClose = () => setOpen(false); */
+    const handleClose = () => setOpen(false); 
 
 {/* <Button onClick={handleOpen}>Se Connecter</Button>
         <Modal
@@ -129,4 +114,43 @@ export default ModalConnect
             
             </form>
           </Box>
-        </Modal> */}
+        </Modal> */
+
+        /* <Button variant="outlined" onClick={handleClickOpen}>
+        Se Connecter
+      </Button>
+      <Dialog open={open} onClose={handleClose}>
+        <DialogTitle>Connectez vous</DialogTitle>
+        <form onSubmit={handleSubmit}>
+        <DialogContent >
+          
+            <TextField
+                    margin="dense"
+                    id="name-input"
+                    name="username"
+                    value={email}
+                    label="Votre Email"
+                    required
+                    type={'email'}
+                    onChange={handleChange}
+                />
+                <TextField 
+                    margin="dense"
+                    id="mdp-input"
+                    name="password"
+                    value={password}
+                    label='Votre mot de passe'
+                    required
+                    type={'password'}
+                    onChange={handleChange}
+                 />
+          
+          
+        </DialogContent>
+        <DialogActions>
+          <Button variant="contained" onClick={handleClose}>Annuler</Button>
+          <Button variant="contained" onClick={handleClose} type="submit">se connecter</Button>
+          </DialogActions>
+        </form>
+        
+      </Dialog> */
