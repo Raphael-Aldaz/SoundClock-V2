@@ -1,8 +1,8 @@
 
-// ACTION TYPE TOGGLE_SETTINGS
-export const PLAYING_MUSICS = 'PLAYING_MUSICS';
+// ACTION TYPE TOGGLE_LOGIN
+export const TOGGLE_LOGIN = 'TOGGLE_LOGIN';
 
 // ACTION CREATOR toggleSettings
-export const playingMusics = () => ({
-  type: PLAYING_MUSICS,
+export const toggleLogin = () => ({
+  type: TOGGLE_LOGIN,
 });

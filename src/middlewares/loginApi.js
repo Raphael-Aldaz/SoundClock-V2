@@ -14,7 +14,6 @@ const loginApi = (store) => (next) => (action) =>{
         })
         .then(
             (response) => {
-                console.log(response.data.token);
                 localStorage.setItem('userToken', response.data.token);
                 store.dispatch(isLoged());
                 

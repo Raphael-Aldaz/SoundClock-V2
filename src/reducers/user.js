@@ -1,3 +1,5 @@
+
+import { TOGGLE_LOGIN } from "../actions";
 import { LOGGOUT, SET_USER_FIELD, IS_LOGED, SET_USERS_LIST } from "../actions/user";
 
 export const initialState = {
@@ -9,12 +11,15 @@ export const initialState = {
     };
     
     const reducer = (state = initialState, action = {}) => {
+       
         switch (action.type) {
 
             case SET_USER_FIELD:
                 return{
                     ...state,
-                    [action.name]:action.value
+                    
+                    username: action.email,
+                    password: action.password
                 }
                 case IS_LOGED:
                     return{
@@ -32,7 +37,12 @@ export const initialState = {
                         ...state,
                         list: action.userList
 
-                    }    
+                    } 
+                case TOGGLE_LOGIN:
+                    return{
+                        ...state,
+                        open: !state.open
+                    }      
             default:
             return state;
         }
