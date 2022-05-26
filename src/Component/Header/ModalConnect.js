@@ -1,72 +1,66 @@
+
 import * as React from 'react';
-import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
-import Modal from '@mui/material/Modal';
-import { TextField } from '@mui/material';
-import SendIcon from '@mui/icons-material/Send';
-
-import Dialog from '@mui/material/Dialog';
-import DialogActions from '@mui/material/DialogActions';
-import DialogContent from '@mui/material/DialogContent';
-import DialogContentText from '@mui/material/DialogContentText';
-import DialogTitle from '@mui/material/DialogTitle';
-
+import { useForm } from 'react-hook-form';
+import { useDispatch, useSelector } from 'react-redux';
+import { toggleLogin } from '../../actions';
 import './Header.scss'
 
 
 
+
 const ModalConnect = ({
-    email,
-    password,
     changeField,
     handleLogin
 }) => {
-  const [open, setOpen] = React.useState(false);
 
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-  };
+  const open = useSelector((state)=> state.users.open);
+  const dispatch = useDispatch();
+  
 
   const handleClick = () => {
-    const form = document.querySelector('.dropdown__content');
-    form.style.display = 'block';
+    /* const form = document.querySelector('.dropdown__content');
+    form.style.display = 'block'; */
+    dispatch(toggleLogin())
+    console.log(open)
 
   }
   const handleformclose = () => {
     const form = document.querySelector('.dropdown__content');
-    form.style.display = 'none';
+    form.style.display = 'block';
 
   }
 
-    
+  const {register, handleSubmit} = useForm();
+  const onSubmit = data =>{
+    changeField(data.username, data.password )
+    handleLogin();
+    } 
 
-    const handleChange=(e) =>{
-        changeField(e.target.name, e.target.value)
-    }
-    const handleSubmit = (e) => {
-      e.preventDefault();
-      handleLogin();
-    }
   
     return (
     <div className="dropdown">
     
     <button onClick={handleClick}>Connectez Vous</button>
 
-    
-    <div className="dropdown__content">
-      <form onSubmit={handleSubmit}>
-        <input required type={'email'} label="Votre Email" name='username' onChange={handleChange} value={email}  />
-        <input required type={'password'} label="Votre Password" name='password' onChange={handleChange} value={password} />
+    {
+      open &&    ( <div className="dropdown__content">
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <div className='input_email'>
+          <h1>Votre Email</h1>
+          <input required type='email' label="Votre Email" name='username' {...register('username')}    />
+        </div>
+        <div className='input_password'>
+          <h1>Votre mot de passe</h1>
+          <input required type='password' label="Votre Password" name='password' {...register('password')}   />
+        </div>
+      
         <button onClick={handleformclose} >Valider</button>
       </form>
         
         
-    </div>
+    </div>)
+    }
+
 </div>
     );
 }

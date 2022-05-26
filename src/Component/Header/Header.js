@@ -13,8 +13,8 @@ const Header = () => {
     const password= useSelector((state)=>state.users.password)
     const logged = useSelector((state)=>state.users.logged)
 
-    const changeField = (name, value) => {
-        dispatch(setUserField(name,value))
+    const changeField = ( email, password) => {
+        dispatch(setUserField(email,password))
     }
     const dispatch = useDispatch();
     
@@ -36,13 +36,14 @@ const Header = () => {
             <div className='modale-groupe'>
             {(!logged) &&
             <>
+                <ModalCreate/>
                 <ModalConnect
                     changeField={changeField}
                     email={email}
                     password={password}
                     handleLogin={handleLogin}
                  />
-                <ModalCreate/>
+                
             </>
 
             }
